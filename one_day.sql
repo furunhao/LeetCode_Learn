@@ -27,4 +27,54 @@ select
 from WORLD
 where population >= 25000000;
 
-/
+/*第二题
+    查找既是低脂，又是可回收的产品
+    考点：and 的使用
+ */
+-- demo 01
+select
+    product_id
+from products
+where low_fats = 'y'
+  and recyclable = 'y';
+
+-- demo 02
+select
+    product_id
+from Products
+where (low_fats, recyclable) = ('Y', 'Y');
+
+/*第三题
+    查找推荐人编号都不等于2的
+ */
+-- = 或 ！= 只能判断基本数据类型 is 关键字只能判断null <=> 既能判断null 又能判断 基本数据类型
+-- demo 01
+select *
+from customer
+where ifnull(referee_id, 0) != 2;
+-- ifnull(m,n) 判断第一个参数m如果为null值转换为n，否则仍然输出为m
+
+-- demo 02
+select
+    name
+from customer
+where referee_id != 2
+   or referee_id is null;
+
+/*
+ 第四题
+    考点是子查询和not in
+    数据量少的时候，子查询比连接查询效率高，数据量大的时候，毫无犹豫选择连接查询
+ */
+-- demo 01
+select
+    c.name customers
+from customers c
+where c.id not in (select customerid from orders);
+
+-- demo 02
+select
+    c.name customers
+from customers c
+         left join orders o on c.id = o.customerId
+where o.id is null;
