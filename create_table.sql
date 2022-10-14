@@ -31,5 +31,11 @@ create table if not exists Orders
     customerId int
 );
 
+create table if not exists Employees
+(
+    employee_id int,
+    name        varchar(30),
+    salary      int
+);
 
 

@@ -46,3 +46,9 @@ insert into Orders (id, customerId)
 values ('1', '3');
 insert into Orders (id, customerId)
 values ('2', '1');
+
+insert into Employees (employee_id, name, salary) values ('2', 'Meir', '3000');
+insert into Employees (employee_id, name, salary) values ('3', 'Michael', '3800');
+insert into Employees (employee_id, name, salary) values ('7', 'Addilyn', '7400');
+insert into Employees (employee_id, name, salary) values ('8', 'Juan', '6100');
+insert into Employees (employee_id, name, salary) values ('9', 'Kannon', '7700');
